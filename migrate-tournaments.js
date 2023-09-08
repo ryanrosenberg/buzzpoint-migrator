@@ -21,7 +21,7 @@ const insertBonusPartDirectStatement = db.prepare('INSERT INTO bonus_part_direct
 
 const findTournamentStatement = db.prepare('SELECT id FROM tournament WHERE slug = ?');
 const findQuestionSetStatement = db.prepare('SELECT id FROM question_set WHERE name = ?');
-const findPacketStatement = db.prepare('SELECT id FROM packet WHERE question_set_id = ? and name = ?');
+const findPacketStatement = db.prepare('SELECT id FROM packet WHERE question_set_version_id = ? and name = ?');
 const findTossupStatement = db.prepare('SELECT id FROM tossup WHERE packet_id = ? and question_number = ?');
 const findBonusPartsStatement = db.prepare('SELECT bonus_part.id, part_number FROM bonus JOIN bonus_part ON bonus.id = bonus_id WHERE packet_id = ? and question_number = ?');
 

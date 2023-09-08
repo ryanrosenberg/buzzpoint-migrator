@@ -15,11 +15,21 @@ db.exec(`
 
 // Create the packet table
 db.exec(`
-  CREATE TABLE IF NOT EXISTS packet (
+  CREATE TABLE IF NOT EXISTS question_set_version (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     question_set_id INTEGER,
-    name TEXT,
+    version TEXT,
     FOREIGN KEY (question_set_id) REFERENCES question_set (id) ON DELETE CASCADE
+  )
+`);
+
+// Create the packet table
+db.exec(`
+  CREATE TABLE IF NOT EXISTS packet (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    question_set_version_id INTEGER,
+    name TEXT,
+    FOREIGN KEY (question_set_version_id) REFERENCES question_set_version (id) ON DELETE CASCADE
   )
 `);
 
